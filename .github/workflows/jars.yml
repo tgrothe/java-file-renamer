@@ -31,8 +31,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: jars/matrix-solver-1.0.jar
-          asset_name: matrix-solver.jar
+          file: jars/java-file-renamer-1.0.jar
+          asset_name: java-file-renamer.jar
           tag: ${{ github.ref }}
           overwrite: true
           body: "Read the readme file for details."
