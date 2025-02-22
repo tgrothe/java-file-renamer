@@ -18,7 +18,7 @@ public class Main {
       newName = newName.replaceAll("\\( +", "(");
       newName = newName.replaceAll(" +\\)", ")");
       if (!file.getName().equals(newName)) {
-        System.out.println("Renaming " + file.getName() + " ---> " + newName);
+        System.out.println("Renaming: " + file.getName() + " ---> " + newName);
         if (!dryRun) {
           System.out.println(
               "Result: " + file.renameTo(new File(file.getParent() + File.separator + newName)));
