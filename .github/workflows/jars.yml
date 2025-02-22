@@ -1,12 +1,9 @@
 name: Commit jars
 
-on:
-  push:
-    branches: [ "main" ]
+on: workflow_dispatch
 
 jobs:
   build:
-    if: ${{ (github.event.workflow_run.conclusion == 'success') && (github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -29,8 +26,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: jars/java-file-renamer-1.0.jar
-          asset_name: java-file-renamer.jar
+          file: build/libs/*.jar
+          file_glob: true
           tag: ${{ github.ref }}
           overwrite: true
           body: "Read the readme file for details."
