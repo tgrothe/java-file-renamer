@@ -3,9 +3,8 @@ import java.io.File;
 public class Main {
   public static void main(String[] args) {
     if (args.length != 2) {
-      System.out.println(
+      throw new IllegalArgumentException(
           "Usage: java -jar <jar file> <full path to directory> <dry run (true/false)>");
-      System.exit(1);
     }
     String fullPath = args[0];
     boolean dryRun = Boolean.parseBoolean(args[1]);
