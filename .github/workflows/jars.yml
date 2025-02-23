@@ -1,6 +1,10 @@
 name: Commit jars
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*'
 
 jobs:
   build:
@@ -28,6 +32,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/libs/*.jar
           file_glob: true
-          tag: ${{ github.ref }}
-          overwrite: false
           body: "Read the readme file for details."
